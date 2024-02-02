@@ -6,7 +6,7 @@ steps:
   - name: build
     image: mcr.microsoft.com/dotnet/sdk:latest
     commands: 
-      - dotnet build
+      - dotnet build Blogifier.sln
 
   - name: test
     image: mcr.microsoft.com/dotnet/sdk:7.0
