@@ -4,12 +4,24 @@ name: integration
 
 steps:
   - name: build
-    image: mcr.microsoft.com/dotnet/sdk
+    image: mcr.microsoft.com/dotnet/sdk:latest
     commands: 
-      - apt-get update && apt-get install -y nodejs npm
+      - apt-get update && apt-get install -y wget
+      - wget https://dot.net/v1/dotnet-install.sh
+      - chmod +x dotnet-install.sh
+      - ./dotnet-install.sh --channel 7.0 --install-dir /usr/share/dotnet
+      - export DOTNET_ROOT=/usr/share/dotnet
+      - export PATH=$PATH:/usr/share/dotnet
+      - apt-get install -y nodejs npm
       - dotnet build
 
   - name: test
-    image: mcr.microsoft.com/dotnet/sdk
+    image: mcr.microsoft.com/dotnet/sdk:latest
     commands: 
+      - apt-get update && apt-get install -y wget
+      - wget https://dot.net/v1/dotnet-install.sh
+      - chmod +x dotnet-install.sh
+      - ./dotnet-install.sh --channel 7.0 --install-dir /usr/share/dotnet
+      - export DOTNET_ROOT=/usr/share/dotnet
+      - export PATH=$PATH:/usr/share/dotnet
       - dotnet test
