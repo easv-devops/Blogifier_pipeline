@@ -16,7 +16,7 @@ steps:
       - dotnet build
 
   - name: test
-  image: mcr.microsoft.com/dotnet/sdk:latest
-  commands: 
-    - export PATH=$PATH:/usr/share/dotnet
-    - dotnet test /drone/src/tests/Blogifier.Tests/Blogifier.Tests.csproj
+    image: mcr.microsoft.com/dotnet/sdk:latest
+    commands: 
+      - export PATH=$PATH:/usr/share/dotnet
+      - dotnet test /drone/src/tests/Blogifier.Tests/Blogifier.Tests.csproj
