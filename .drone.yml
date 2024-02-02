@@ -3,12 +3,12 @@ type: docker
 name: integration
 
 steps:
-    -name: build
+  - name: build
     image: mcr.microsoft.com/dotnet/sdk
     commands: 
-        -dotnet build
+      - dotnet build
 
-    -name: test
+  - name: test
     image: mcr.microsoft.com/dotnet/sdk
     commands: 
-        -dotnet test
+      - dotnet test
