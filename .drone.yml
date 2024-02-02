@@ -12,5 +12,5 @@ steps:
   - name: test
     image: mcr.microsoft.com/dotnet/sdk:latest
     commands: 
-      - cd tests
+      - cd tests/Blogifier.Tests
       - dotnet test
